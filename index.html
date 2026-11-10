@@ -1,0 +1,1253 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090909">
+<meta name="description" content="Portafolio personal de Lamine Yamal.">
+<title>LAMINE YAMAL | Portfolio</title>
+
+<style>
+:root {
+  --bg:#090909;
+  --panel:#141414;
+  --red:#ef3333;
+  --red2:#ff5555;
+  --white:#fff;
+  --muted:#999;
+}
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html,body {
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  overscroll-behavior:none;
+}
+
+body {
+  background:var(--bg);
+  color:var(--white);
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+/* FONDO */
+
+body::before {
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-3;
+  background:
+    radial-gradient(circle at 85% 15%,#9b151526,transparent 35%),
+    radial-gradient(circle at 10% 85%,#ef333315,transparent 40%);
+}
+
+#particles {
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:-1;
+}
+
+#cursor {
+  position:fixed;
+  width:17px;
+  height:17px;
+  border:1px solid var(--red);
+  border-radius:50%;
+  pointer-events:none;
+  z-index:9998;
+  transform:translate(-50%,-50%);
+  box-shadow:0 0 15px #ef333366;
+  display:none;
+}
+
+@media(pointer:fine) {
+  #cursor {display:block}
+}
+
+/* LOADER */
+
+#loader {
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  background:#090909;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  transition:opacity .7s,visibility .7s;
+}
+
+#loader.hide {
+  opacity:0;
+  visibility:hidden;
+}
+
+.loader-logo {
+  font-size:25px;
+  font-weight:900;
+  letter-spacing:3px;
+}
+
+.loader-logo span {color:var(--red)}
+
+.loader-bar {
+  height:3px;
+  width:140px;
+  background:#292929;
+  margin-top:22px;
+  overflow:hidden;
+}
+
+.loader-bar::after {
+  content:"";
+  display:block;
+  width:45%;
+  height:100%;
+  background:var(--red);
+  animation:loading 1s infinite alternate;
+}
+
+@keyframes loading {
+  to {transform:translateX(125%)}
+}
+
+/* HEADER */
+
+header {
+  position:fixed;
+  z-index:100;
+  top:0;
+  left:0;
+  width:100%;
+  height:72px;
+  padding:0 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#090909e8;
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid #ffffff12;
+}
+
+.logo {
+  color:white;
+  font-size:18px;
+  font-weight:900;
+  letter-spacing:2px;
+  white-space:nowrap;
+}
+
+.logo span {color:var(--red)}
+
+nav {
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+nav button {
+  border:0;
+  background:transparent;
+  color:#999;
+  padding:11px 12px;
+  border-radius:6px;
+  font-size:12px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+nav button:hover,
+nav button.active {
+  color:white;
+  background:#ef33331c;
+}
+
+nav button.active {
+  box-shadow:inset 0 -2px var(--red);
+}
+
+.menu {
+  display:none;
+  background:none;
+  border:0;
+  color:white;
+  font-size:25px;
+  cursor:pointer;
+}
+
+/* CONTENEDOR PRINCIPAL */
+
+main {
+  position:fixed;
+  top:72px;
+  bottom:48px;
+  left:0;
+  right:0;
+  overflow:hidden;
+}
+
+.screen {
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:25px 8%;
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transform:translateY(12px);
+  transition:opacity .35s,transform .35s,visibility .35s;
+}
+
+.screen.active {
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+  transform:translateY(0);
+}
+
+.screen-content {
+  width:100%;
+  max-width:1050px;
+  max-height:100%;
+  margin:auto;
+}
+
+.section-label {
+  color:var(--red);
+  font-size:10px;
+  letter-spacing:3px;
+  margin-bottom:14px;
+}
+
+.section-title {
+  font-size:clamp(28px,5vw,45px);
+  font-weight:900;
+  margin-bottom:20px;
+  letter-spacing:-1px;
+}
+
+.section-title span {color:var(--red)}
+
+.description {
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.9;
+  max-width:550px;
+}
+
+/* BOTONES */
+
+.buttons {
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:25px;
+}
+
+.btn {
+  padding:14px 21px;
+  border-radius:6px;
+  font-size:11px;
+  font-weight:bold;
+  border:1px solid transparent;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.primary {
+  background:var(--red);
+  color:white;
+}
+
+.primary:hover {
+  background:var(--red2);
+  transform:translateY(-3px);
+  box-shadow:0 7px 25px #ef333344;
+}
+
+.secondary {
+  background:transparent;
+  border-color:#444;
+  color:white;
+}
+
+.secondary:hover {
+  border-color:var(--red);
+  color:var(--red);
+}
+
+/* INICIO */
+
+.hero-grid {
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  align-items:center;
+  gap:40px;
+}
+
+.tag {
+  display:inline-block;
+  padding:9px 14px;
+  border:1px solid #ef333355;
+  background:#ef333311;
+  color:#ff6868;
+  border-radius:30px;
+  font-size:10px;
+  letter-spacing:2px;
+  margin-bottom:23px;
+}
+
+.hero h1 {
+  font-size:clamp(48px,8vw,92px);
+  font-weight:900;
+  line-height:.95;
+  letter-spacing:-4px;
+}
+
+.hero h1 span {color:var(--red)}
+
+.hero-status {
+  display:flex;
+  align-items:center;
+  gap:9px;
+  margin-top:30px;
+  color:#888;
+  font-size:10px;
+  letter-spacing:2px;
+}
+
+.dot {
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--red);
+  box-shadow:0 0 12px var(--red);
+}
+
+.profile-frame {
+  max-width:300px;
+  width:100%;
+  margin:auto;
+  padding:8px;
+  border:1px solid #ef333366;
+  border-radius:14px;
+  background:#ef33330a;
+  box-shadow:0 0 40px #ef33331c;
+  transition:.4s;
+}
+
+.profile-frame:hover {
+  transform:translateY(-5px);
+  box-shadow:0 0 50px #ef333344;
+}
+
+.profile-frame img {
+  display:block;
+  width:100%;
+  aspect-ratio:3/4;
+  object-fit:cover;
+  object-position:center;
+  border-radius:8px;
+}
+
+.profile-caption {
+  text-align:center;
+  padding:12px 0 5px;
+  color:#ff6868;
+  font-size:10px;
+  letter-spacing:2px;
+}
+
+/* SOBRE MI */
+
+.about-grid {
+  display:grid;
+  grid-template-columns:1.4fr .6fr;
+  gap:25px;
+  align-items:stretch;
+}
+
+.about-card {
+  padding:24px;
+  background:linear-gradient(140deg,#241010,#141414);
+  border:1px solid #ef333344;
+  border-radius:12px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.about-card .icon {
+  font-size:30px;
+  margin-bottom:16px;
+}
+
+.about-card h3 {
+  font-size:16px;
+  margin-bottom:10px;
+}
+
+.about-card p {
+  font-size:12px;
+  color:var(--muted);
+  line-height:1.8;
+}
+
+/* QUE HAGO */
+
+.cards {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-top:25px;
+}
+
+.card {
+  position:relative;
+  padding:22px;
+  background:var(--panel);
+  border:1px solid #ffffff12;
+  border-radius:11px;
+  transition:.3s;
+}
+
+.card:hover {
+  transform:translateY(-5px);
+  border-color:#ef333366;
+  box-shadow:0 10px 30px #0008;
+}
+
+.card-icon {
+  width:43px;
+  height:43px;
+  display:grid;
+  place-items:center;
+  background:#ef333318;
+  border-radius:9px;
+  font-size:22px;
+  margin-bottom:18px;
+}
+
+.card-number {
+  position:absolute;
+  right:17px;
+  top:17px;
+  color:#ffffff25;
+  font-weight:900;
+  font-size:20px;
+}
+
+.card h3 {
+  font-size:15px;
+  margin-bottom:10px;
+}
+
+.card p {
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.8;
+}
+
+.bot-list {
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:13px;
+}
+
+.bot-list span {
+  font-size:9px;
+  padding:6px 8px;
+  border-radius:5px;
+  background:#ef333315;
+  border:1px solid #ef333333;
+  color:#ff7777;
+}
+
+.project-status {
+  color:#ff7777;
+  font-size:10px;
+  letter-spacing:1px;
+  margin-top:15px;
+}
+
+/* PROYECTOS */
+
+.project-box {
+  max-width:500px;
+  padding:30px;
+  background:var(--panel);
+  border:1px solid #ef333344;
+  border-radius:13px;
+  transition:.3s;
+}
+
+.project-box:hover {
+  transform:translateY(-5px);
+  border-color:var(--red);
+}
+
+.project-icon {
+  font-size:35px;
+  margin-bottom:18px;
+}
+
+.project-box h3 {
+  font-size:22px;
+  margin-bottom:12px;
+}
+
+.project-box p {
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.9;
+}
+
+/* TRAYECTORIA */
+
+.timeline {
+  border-left:2px solid #ef333355;
+  margin-left:10px;
+  padding-left:25px;
+  display:grid;
+  gap:17px;
+}
+
+.timeline-item {
+  position:relative;
+  background:var(--panel);
+  border:1px solid #ffffff12;
+  padding:20px;
+  border-radius:10px;
+}
+
+.timeline-item::before {
+  content:"";
+  position:absolute;
+  left:-32px;
+  top:25px;
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:var(--red);
+  box-shadow:0 0 12px var(--red);
+}
+
+.timeline-item small {
+  color:var(--red);
+  font-size:9px;
+  letter-spacing:2px;
+}
+
+.timeline-item h3 {
+  font-size:16px;
+  margin:9px 0;
+}
+
+.timeline-item p {
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.7;
+}
+
+/* CONTACTO */
+
+.contact-box {
+  width:100%;
+  max-width:650px;
+  margin:auto;
+  text-align:center;
+  padding:40px 22px;
+  border:1px solid #ef333344;
+  border-radius:15px;
+  background:
+    radial-gradient(ellipse at top,#ef333319,transparent 70%),
+    #141414;
+}
+
+.contact-box p {
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.8;
+  margin:14px auto 22px;
+  max-width:430px;
+}
+
+.discord-user {
+  color:#ff7777;
+  font-size:13px;
+  margin-bottom:18px;
+}
+
+/* FOOTER */
+
+footer {
+  position:fixed;
+  bottom:0;
+  width:100%;
+  height:48px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  border-top:1px solid #ffffff12;
+  color:#777;
+  font-size:10px;
+  background:#090909;
+}
+
+footer span {color:var(--red)}
+
+/* NOTIFICACIONES */
+
+#toast {
+  position:fixed;
+  z-index:500;
+  bottom:65px;
+  left:50%;
+  transform:translate(-50%,100px);
+  opacity:0;
+  background:#1b1b1b;
+  border:1px solid #ef333355;
+  color:white;
+  padding:13px 20px;
+  border-radius:8px;
+  font-size:12px;
+  transition:.3s;
+  pointer-events:none;
+  text-align:center;
+  width:max-content;
+  max-width:90%;
+}
+
+#toast.show {
+  opacity:1;
+  transform:translate(-50%,0);
+}
+
+/* MOVIMIENTO */
+
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    animation:none!important;
+    transition:none!important;
+  }
+}
+
+/* MOVIL */
+
+@media(max-width:750px) {
+  header {
+    height:64px;
+    padding:0 6%;
+  }
+
+  .logo {font-size:15px}
+
+  .menu {
+    display:block;
+  }
+
+  nav {
+    position:absolute;
+    top:64px;
+    left:0;
+    right:0;
+    background:#101010;
+    border-bottom:1px solid #ffffff15;
+    padding:14px;
+    display:none;
+    flex-direction:column;
+    align-items:stretch;
+    gap:3px;
+  }
+
+  nav.active {display:flex}
+
+  nav button {
+    text-align:left;
+    padding:12px;
+  }
+
+  main {
+    top:64px;
+    bottom:42px;
+  }
+
+  footer {height:42px}
+
+  .screen {padding:15px 6%}
+
+  .hero-grid {
+    grid-template-columns:1fr;
+    gap:15px;
+  }
+
+  .hero h1 {
+    font-size:clamp(43px,12vw,68px);
+    letter-spacing:-3px;
+  }
+
+  .hero .description {
+    font-size:12px;
+    line-height:1.65;
+    margin-top:13px;
+  }
+
+  .tag {
+    margin-bottom:14px;
+    padding:7px 10px;
+  }
+
+  .hero-status {margin-top:14px}
+
+  .profile-frame {
+    width:auto;
+    max-width:none;
+    height:min(29vh,210px);
+    display:flex;
+    align-items:center;
+    padding:5px;
+    gap:12px;
+  }
+
+  .profile-frame img {
+    width:auto;
+    height:100%;
+    aspect-ratio:3/4;
+  }
+
+  .profile-caption {
+    font-size:9px;
+    flex:1;
+    line-height:1.6;
+  }
+
+  .section-title {
+    font-size:30px;
+    margin-bottom:12px;
+  }
+
+  .section-label {margin-bottom:9px}
+
+  .description {font-size:12px}
+
+  .about-grid {
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+
+  .about-card {padding:14px}
+
+  .about-card .icon {font-size:22px;margin-bottom:6px}
+
+  .about-card h3 {font-size:13px}
+
+  .about-card p {font-size:11px}
+
+  .cards {
+    grid-template-columns:1fr;
+    gap:9px;
+    margin-top:14px;
+  }
+
+  .card {
+    padding:12px 14px;
+    display:grid;
+    grid-template-columns:37px 1fr;
+    column-gap:12px;
+    align-items:center;
+  }
+
+  .card-icon {
+    width:37px;
+    height:37px;
+    grid-row:span 2;
+    margin:0;
+    font-size:18px;
+  }
+
+  .card h3 {
+    font-size:12px;
+    margin:0 0 3px;
+  }
+
+  .card p {
+    font-size:10px;
+    line-height:1.5;
+  }
+
+  .card-number {display:none}
+
+  .bot-list {
+    grid-column:2;
+    margin-top:7px;
+  }
+
+  .bot-list span {
+    font-size:8px;
+    padding:4px 6px;
+  }
+
+  .project-box {
+    padding:20px;
+  }
+
+  .timeline {gap:10px}
+
+  .timeline-item {padding:13px}
+
+  .timeline-item h3 {font-size:13px}
+
+  .timeline-item p {font-size:11px}
+
+  .contact-box {padding:25px 15px}
+
+  .contact-box .section-title {font-size:28px}
+
+  .contact-box p {font-size:11px;margin:10px auto 15px}
+}
+
+@media(max-height:650px) and (max-width:750px) {
+  .screen {padding:9px 6%}
+  .hero-grid {gap:8px}
+  .profile-frame {height:24vh}
+  .section-title {font-size:25px}
+  .card {padding:8px 11px}
+  .timeline-item {padding:9px}
+  .contact-box {padding:15px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- CARGA -->
+<div id="loader">
+  <div class="loader-logo">LAMINE YAMAL<span>.</span></div>
+  <div class="loader-bar"></div>
+</div>
+
+<canvas id="particles"></canvas>
+<div id="cursor"></div>
+<div id="toast" role="status"></div>
+
+<!-- ENCABEZADO -->
+<header>
+  <a href="#" class="logo" data-go="inicio">
+    LAMINE YAMAL<span>.</span>
+  </a>
+
+  <button class="menu" id="menu" aria-label="Abrir menú"
+  aria-expanded="false">☰</button>
+
+  <nav id="nav">
+    <button class="active" data-go="inicio">Inicio</button>
+    <button data-go="sobre-mi">Sobre mí</button>
+    <button data-go="que-hago">Qué hago</button>
+    <button data-go="proyectos">Proyectos</button>
+    <button data-go="trayectoria">Trayectoria</button>
+    <button data-go="contacto">Contacto</button>
+  </nav>
+</header>
+
+<main>
+
+<!-- INICIO -->
+<section class="screen active hero" id="inicio">
+  <div class="screen-content hero-grid">
+
+    <div>
+      <div class="tag">PORTAFOLIO PERSONAL · 2026</div>
+
+      <h1>LAMINE<br><span>YAMAL.</span></h1>
+
+      <p class="description">
+        Soy desarrollador independiente. Me dedico a configurar
+        bots de Discord, desarrollar páginas web y crear
+        proyectos digitales.
+      </p>
+
+      <div class="buttons">
+        <button class="btn primary" data-go="proyectos">
+          VER PROYECTOS ↗
+        </button>
+
+        <button class="btn secondary" data-go="contacto">
+          CONTACTAR
+        </button>
+      </div>
+
+      <div class="hero-status">
+        <span class="dot"></span>
+        DESARROLLADOR INDEPENDIENTE
+      </div>
+    </div>
+
+    <div class="profile-frame">
+      <img
+        src="https://i.ibb.co/yvyMR79/IMG-2080.jpg"
+        alt="Foto de perfil de Lamine Yamal"
+      >
+      <div class="profile-caption">
+        LAMINE YAMAL<br>
+        DEVELOPER
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SOBRE MI -->
+<section class="screen" id="sobre-mi">
+  <div class="screen-content">
+
+    <div class="section-label">01 / PRESENTACIÓN</div>
+
+    <h2 class="section-title">SOBRE <span>MÍ.</span></h2>
+
+    <div class="about-grid">
+
+      <p class="description">
+        Soy desarrollador independiente. Me dedico a crear
+        páginas web, configurar bots de Discord y desarrollar
+        proyectos digitales.
+
+        <br><br>
+
+        Me gusta experimentar, aprender nuevas herramientas
+        y convertir ideas en proyectos funcionales.
+
+        <br><br>
+
+        Mi objetivo es seguir mejorando mis habilidades
+        y crear experiencias digitales cada vez mejores.
+      </p>
+
+      <div class="about-card">
+        <div class="icon">✦</div>
+        <h3>CREATIVIDAD Y DESARROLLO</h3>
+        <p>
+          Ideas, programación y proyectos digitales.
+          Cada proyecto es una oportunidad para aprender.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- QUE HAGO -->
+<section class="screen" id="que-hago">
+  <div class="screen-content">
+
+    <div class="section-label">02 / SERVICIOS</div>
+
+    <h2 class="section-title">¿QUÉ <span>HAGO?</span></h2>
+
+    <p class="description">
+      Estos son los principales trabajos que realizo.
+    </p>
+
+    <div class="cards">
+
+      <article class="card">
+        <span class="card-number">01</span>
+        <div class="card-icon">🤖</div>
+        <div>
+          <h3>Configuración de bots</h3>
+          <p>
+            Configuro bots de Discord para servidores,
+            con moderación, administración, bienvenida y más.
+          </p>
+        </div>
+
+        <div class="bot-list">
+          <span>Koya</span>
+          <span>Nekotina</span>
+          <span>Luminous</span>
+          <span>Carl-bot</span>
+          <span>Guild Manager</span>
+          <span>Y más</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <span class="card-number">02</span>
+        <div class="card-icon">🌐</div>
+        <div>
+          <h3>Desarrollo de webs</h3>
+          <p>
+            Creo páginas web como portafolios, guías,
+            páginas informativas y proyectos personalizados.
+          </p>
+        </div>
+        <div class="project-status">WEB DEVELOPMENT</div>
+      </article>
+
+      <article class="card">
+        <span class="card-number">03</span>
+        <div class="card-icon">⚙️</div>
+        <div>
+          <h3>Creación de bots</h3>
+          <p>
+            Desarrollo bots de Discord con funciones
+            personalizadas y sistemas de complejidad
+            básica e intermedia.
+          </p>
+        </div>
+        <div class="project-status">DISCORD DEVELOPMENT</div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROYECTOS -->
+<section class="screen" id="proyectos">
+  <div class="screen-content">
+
+    <div class="section-label">03 / TRABAJO</div>
+
+    <h2 class="section-title">MIS <span>PROYECTOS.</span></h2>
+
+    <div class="project-box">
+      <div class="project-icon">⛏️</div>
+
+      <h3>SylenMC</h3>
+
+      <p>
+        Servidor de Minecraft en el que desempeño
+        el cargo de H. Manager, participando
+        en su gestión y administración.
+      </p>
+
+      <div class="project-status">
+        H. MANAGER · MINECRAFT
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TRAYECTORIA -->
+<section class="screen" id="trayectoria">
+  <div class="screen-content">
+
+    <div class="section-label">04 / MI CAMINO</div>
+
+    <h2 class="section-title">MI <span>TRAYECTORIA.</span></h2>
+
+    <p class="description">
+      Mi camino en el mundo digital y el desarrollo.
+    </p>
+
+    <div class="timeline">
+
+      <article class="timeline-item">
+        <small>ACTUALIDAD</small>
+        <h3>Desarrollo independiente</h3>
+        <p>
+          Continúo aprendiendo, creando webs,
+          configurando bots y desarrollando
+          proyectos propios.
+        </p>
+      </article>
+
+      <article class="timeline-item">
+        <small>EXPERIENCIA</small>
+        <h3>SylenMC — H. Manager</h3>
+        <p>
+          Participo en la gestión y administración
+          de un servidor de Minecraft.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="screen" id="contacto">
+  <div class="screen-content">
+
+    <div class="contact-box">
+
+      <div class="section-label">05 / CONTACTO</div>
+
+      <h2 class="section-title">HABLEMOS<span>.</span></h2>
+
+      <p>
+        ¿Tenés una idea, necesitás configurar un bot
+        o querés desarrollar una web?
+        Podés encontrarme en Discord.
+      </p>
+
+      <div class="discord-user">
+        Discord: @Ryan_lamineyamal
+      </div>
+
+      <button class="btn primary" id="copy">
+        COPIAR USUARIO ↗
+      </button>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Diseñado y desarrollado por <span>&nbsp;LAMINE YAMAL.</span>
+  &nbsp; © 2026
+</footer>
+
+<script>
+
+// PANTALLA DE CARGA
+window.addEventListener("load",()=>{
+  setTimeout(()=>{
+    document.getElementById("loader").classList.add("hide");
+  },850);
+});
+
+// NAVEGACIÓN SIN SCROLL
+const screens=document.querySelectorAll(".screen");
+const navButtons=document.querySelectorAll("[data-go]");
+const nav=document.getElementById("nav");
+const menu=document.getElementById("menu");
+
+function showScreen(id) {
+  const target=document.getElementById(id);
+  if(!target) return;
+
+  screens.forEach(screen=>{
+    screen.classList.toggle("active",screen.id===id);
+  });
+
+  document.querySelectorAll("nav button").forEach(button=>{
+    button.classList.toggle("active",button.dataset.go===id);
+  });
+
+  nav.classList.remove("active");
+  menu.textContent="☰";
+  menu.setAttribute("aria-expanded","false");
+}
+
+navButtons.forEach(button=>{
+  button.addEventListener("click",()=>{
+    showScreen(button.dataset.go);
+  });
+});
+
+// MENU MOVIL
+menu.addEventListener("click",()=>{
+  const open=nav.classList.toggle("active");
+  menu.textContent=open?"✕":"☰";
+  menu.setAttribute("aria-expanded",String(open));
+});
+
+// NOTIFICACIONES
+function toast(message) {
+  const element=document.getElementById("toast");
+  element.textContent=message;
+  element.classList.add("show");
+
+  clearTimeout(window.toastTimer);
+
+  window.toastTimer=setTimeout(()=>{
+    element.classList.remove("show");
+  },2400);
+}
+
+// COPIAR DISCORD
+document.getElementById("copy").addEventListener("click",async()=>{
+  try {
+    await navigator.clipboard.writeText("Ryan_lamineyamal");
+    toast("✓ Usuario de Discord copiado");
+  } catch(error) {
+    toast("Discord: Ryan_lamineyamal");
+  }
+});
+
+// CURSOR PARA PC
+const cursor=document.getElementById("cursor");
+
+if(window.matchMedia("(pointer:fine)").matches) {
+  window.addEventListener("mousemove",event=>{
+    cursor.style.left=event.clientX+"px";
+    cursor.style.top=event.clientY+"px";
+  });
+}
+
+// PARTICULAS ROJAS
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
+
+let dots=[];
+let width,height;
+
+function resizeCanvas() {
+  const ratio=Math.min(window.devicePixelRatio||1,2);
+
+  width=window.innerWidth;
+  height=window.innerHeight;
+
+  canvas.width=width*ratio;
+  canvas.height=height*ratio;
+
+  ctx.setTransform(ratio,0,0,ratio,0,0);
+
+  const amount=Math.min(45,Math.floor(width/18));
+
+  dots=Array.from({length:amount},()=>({
+    x:Math.random()*width,
+    y:Math.random()*height,
+    r:Math.random()*1.5+.5,
+    speed:Math.random()*.35+.1
+  }));
+}
+
+function drawParticles() {
+  ctx.clearRect(0,0,width,height);
+
+  dots.forEach(p=>{
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle="rgba(239,51,51,.5)";
+    ctx.fill();
+
+    p.y-=p.speed;
+
+    if(p.y<0) {
+      p.y=height;
+      p.x=Math.random()*width;
+    }
+  });
+
+  requestAnimationFrame(drawParticles);
+}
+
+if(!window.matchMedia("(prefers-reduced-motion:reduce)").matches) {
+  resizeCanvas();
+  drawParticles();
+  window.addEventListener("resize",resizeCanvas);
+}
+
+</script>
+
+</body>
+</html>
