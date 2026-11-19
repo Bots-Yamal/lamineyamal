@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 <meta name="theme-color" content="#090909">
-<meta name="description" content="LAMINE YAMAL - Portfolio de desarrollador independiente">
+<meta name="description" content="LAMINE YAMAL - Portfolio personal">
 <title>LAMINE YAMAL | Premium Portfolio</title>
 
 <style>
@@ -19,11 +19,7 @@
   --border:#ffffff13;
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
 html,body{
   width:100%;
@@ -37,8 +33,6 @@ body{
   color:var(--white);
   font-family:Arial,Helvetica,sans-serif;
 }
-
-/* BACKGROUND */
 
 body:before{
   content:"";
@@ -73,10 +67,7 @@ body:before{
   transition:.7s;
 }
 
-#loader.hide{
-  opacity:0;
-  visibility:hidden;
-}
+#loader.hide{opacity:0;visibility:hidden}
 
 .loader-logo{
   font-size:25px;
@@ -116,12 +107,12 @@ header{
   left:0;
   width:100%;
   height:76px;
-  padding:0 6%;
+  padding:0 5%;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:20px;
-  background:#090909eF;
+  gap:15px;
+  background:#090909ef;
   backdrop-filter:blur(20px);
   border-bottom:1px solid #ffffff12;
   box-shadow:0 5px 30px #0008;
@@ -133,6 +124,7 @@ header{
   letter-spacing:2px;
   white-space:nowrap;
   color:white;
+  text-decoration:none;
 }
 
 .logo span{color:var(--red)}
@@ -140,13 +132,13 @@ header{
 .header-right{
   display:flex;
   align-items:center;
-  gap:15px;
+  gap:12px;
 }
 
 nav{
   display:flex;
   align-items:center;
-  gap:5px;
+  gap:4px;
 }
 
 nav button{
@@ -154,19 +146,14 @@ nav button{
   color:#999;
   border:1px solid transparent;
   border-radius:6px;
-  padding:11px 13px;
+  padding:11px 12px;
   font-size:11px;
   cursor:pointer;
   transition:.25s;
   white-space:nowrap;
 }
 
-nav button:hover{
-  color:white;
-  border-color:#ef333355;
-  box-shadow:0 0 15px #ef33331a;
-}
-
+nav button:hover,
 nav button.active{
   color:white;
   background:#ef33331a;
@@ -217,10 +204,7 @@ main{
   visibility:hidden;
   pointer-events:none;
   transform:translateY(12px);
-  transition:
-    opacity .35s ease,
-    transform .35s ease,
-    visibility .35s;
+  transition:opacity .35s ease,transform .35s ease,visibility .35s;
 }
 
 .screen.active{
@@ -272,12 +256,16 @@ main{
 }
 
 .btn{
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
   padding:14px 21px;
   border-radius:6px;
   font-size:11px;
   font-weight:bold;
   cursor:pointer;
   transition:.3s;
+  text-decoration:none;
 }
 
 .primary{
@@ -339,7 +327,7 @@ main{
   display:flex;
   align-items:center;
   gap:9px;
-  margin-top:28px;
+  margin-top:25px;
   color:#888;
   font-size:10px;
   letter-spacing:2px;
@@ -353,37 +341,106 @@ main{
   box-shadow:0 0 12px var(--red);
 }
 
-.profile-frame{
+/* ARGENTINA CLOCK */
+
+.clock-box{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  margin-top:20px;
+  padding:11px 15px;
+  background:#151515;
+  border:1px solid #ef333344;
+  border-radius:9px;
+  box-shadow:0 0 18px #ef333311;
+}
+
+.clock-icon{
+  font-size:19px;
+  color:#ff7777;
+}
+
+.clock-info{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+
+#argentinaTime{
+  font-size:17px;
+  font-weight:bold;
+  letter-spacing:1px;
+}
+
+#argentinaDate{
+  color:#888;
+  font-size:9px;
+  letter-spacing:1px;
+  text-transform:capitalize;
+}
+
+/* PROFILE CARD */
+
+.profile-card{
   width:100%;
   max-width:300px;
   margin:auto;
-  padding:8px;
+  padding:9px;
   border:1px solid #ef333366;
   border-radius:14px;
-  background:#ef333309;
-  box-shadow:0 0 30px #ef333322, inset 0 0 20px #ef333311;
+  background:linear-gradient(145deg,#251010,#111);
+  box-shadow:0 0 30px #ef333322,inset 0 0 20px #ef333311;
   transition:.4s;
 }
 
-.profile-frame:hover{
+.profile-card:hover{
   transform:translateY(-6px);
   box-shadow:0 0 50px #ef333344;
 }
 
-.profile-frame img{
+.profile-card img{
   display:block;
   width:100%;
-  aspect-ratio:3/4;
+  aspect-ratio:3/3.5;
   object-fit:cover;
   border-radius:8px;
 }
 
-.profile-caption{
-  text-align:center;
-  padding:12px 0 5px;
+.profile-details{
+  padding:14px 10px 9px;
+}
+
+.profile-name{
+  font-size:16px;
+  font-weight:900;
+  letter-spacing:1px;
+}
+
+.profile-role{
   color:#ff7777;
-  font-size:10px;
+  font-size:9px;
   letter-spacing:2px;
+  margin-top:5px;
+}
+
+.profile-divider{
+  height:1px;
+  background:#ffffff18;
+  margin:12px 0;
+}
+
+.profile-discord{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+  color:#aaa;
+  font-size:10px;
+}
+
+.profile-discord strong{
+  color:#fff;
+  font-weight:normal;
 }
 
 /* ABOUT */
@@ -503,52 +560,113 @@ main{
 
 /* PROJECTS */
 
-.project-box{
-  max-width:500px;
-  padding:30px;
+.server-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-top:20px;
+}
+
+.server-card{
+  position:relative;
+  padding:22px;
   background:linear-gradient(145deg,#191919,#101010);
   border:1px solid #ef333344;
-  border-radius:13px;
-  box-shadow:0 0 25px #ef333311;
+  border-radius:12px;
+  box-shadow:0 0 20px #ef333311;
   transition:.3s;
+  display:flex;
+  flex-direction:column;
+  min-width:0;
 }
 
-.project-box:hover{
+.server-card:hover{
   transform:translateY(-5px);
-  box-shadow:0 0 35px #ef333333;
+  border-color:#ef3333;
+  box-shadow:0 0 30px #ef333333;
 }
 
-.project-icon{
-  font-size:35px;
-  margin-bottom:18px;
+.server-icon{
+  width:45px;
+  height:45px;
+  display:grid;
+  place-items:center;
+  border-radius:10px;
+  background:#ef33331c;
+  border:1px solid #ef333344;
+  font-size:23px;
+  margin-bottom:15px;
 }
 
-.project-box h3{
-  font-size:22px;
-  margin-bottom:12px;
+.server-card h3{
+  font-size:17px;
+  margin-bottom:8px;
 }
 
-.project-box p{
-  font-size:13px;
+.server-card p{
   color:var(--muted);
-  line-height:1.9;
+  font-size:11px;
+  line-height:1.7;
+}
+
+.server-rank{
+  display:inline-block;
+  align-self:flex-start;
+  margin-top:12px;
+  padding:6px 9px;
+  color:#ff7777;
+  background:#ef333315;
+  border:1px solid #ef333344;
+  border-radius:5px;
+  font-size:9px;
+  letter-spacing:1px;
+}
+
+.server-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:16px;
+  padding:10px 12px;
+  border-radius:6px;
+  color:white;
+  background:#ef3333;
+  text-decoration:none;
+  font-size:10px;
+  font-weight:bold;
+  transition:.25s;
+}
+
+.server-link:hover{
+  background:#ff5555;
+  box-shadow:0 0 18px #ef333355;
+}
+
+.server-no-link{
+  margin-top:16px;
+  padding:10px 12px;
+  text-align:center;
+  border:1px solid #ffffff20;
+  color:#777;
+  border-radius:6px;
+  font-size:10px;
 }
 
 /* TIMELINE */
 
 .timeline{
   border-left:2px solid #ef333355;
-  margin-left:10px;
+  margin:20px 0 0 10px;
   padding-left:25px;
   display:grid;
-  gap:17px;
+  gap:12px;
 }
 
 .timeline-item{
   position:relative;
   background:#151515;
   border:1px solid #ffffff12;
-  padding:20px;
+  padding:15px 18px;
   border-radius:10px;
   transition:.3s;
 }
@@ -562,7 +680,7 @@ main{
   content:"";
   position:absolute;
   left:-32px;
-  top:25px;
+  top:22px;
   width:12px;
   height:12px;
   background:var(--red);
@@ -577,15 +695,25 @@ main{
 }
 
 .timeline-item h3{
-  font-size:16px;
-  margin:9px 0;
+  font-size:15px;
+  margin:7px 0;
 }
 
 .timeline-item p{
   color:var(--muted);
-  font-size:12px;
+  font-size:11px;
   line-height:1.7;
 }
+
+.timeline-item a{
+  color:#ff7777;
+  font-size:10px;
+  text-decoration:none;
+  display:inline-block;
+  margin-top:7px;
+}
+
+.timeline-item a:hover{text-decoration:underline}
 
 /* CONTACT */
 
@@ -597,9 +725,7 @@ main{
   padding:40px 22px;
   border:1px solid #ef333355;
   border-radius:15px;
-  background:
-    radial-gradient(ellipse at top,#ef333322,transparent 70%),
-    #141414;
+  background:radial-gradient(ellipse at top,#ef333322,transparent 70%),#141414;
   box-shadow:0 0 40px #ef333314;
 }
 
@@ -675,7 +801,6 @@ footer span{color:var(--red)}
   header{
     height:112px;
     padding:9px 4%;
-    display:flex;
     flex-direction:column;
     justify-content:center;
     gap:8px;
@@ -712,133 +837,180 @@ footer span{color:var(--red)}
     gap:4px;
   }
 
-  main{
-    top:112px;
-    bottom:42px;
-  }
-
+  main{top:112px;bottom:42px}
   footer{height:42px}
 
-  .screen{
-    padding:14px 6%;
-  }
+  .screen{padding:12px 6%}
 
   .hero-grid{
     grid-template-columns:1fr;
-    gap:12px;
+    gap:10px;
   }
 
   .hero h1{
-    font-size:clamp(42px,11vw,67px);
+    font-size:clamp(40px,10vw,62px);
     letter-spacing:-3px;
   }
 
   .hero .description{
-    font-size:12px;
-    line-height:1.6;
-    margin-top:12px;
+    font-size:11px;
+    line-height:1.5;
+    margin-top:9px;
   }
 
   .tag{
-    margin-bottom:13px;
+    margin-bottom:11px;
     padding:7px 10px;
   }
 
-  .buttons{
-    margin-top:16px;
-    gap:8px;
+  .buttons{margin-top:13px;gap:8px}
+  .btn{padding:10px 13px;font-size:10px}
+  .hero-status{margin-top:11px;font-size:9px}
+
+  .clock-box{
+    margin-top:11px;
+    padding:8px 11px;
   }
 
-  .btn{
-    padding:11px 13px;
-    font-size:10px;
-  }
+  #argentinaTime{font-size:15px}
+  #argentinaDate{font-size:8px}
 
-  .hero-status{margin-top:14px}
-
-  .profile-frame{
+  .profile-card{
     max-width:none;
-    width:auto;
-    height:min(27vh,190px);
-    display:flex;
+    width:100%;
+    display:grid;
+    grid-template-columns:90px 1fr;
     align-items:center;
-    gap:12px;
-    padding:5px;
+    gap:5px;
+    padding:7px;
   }
 
-  .profile-frame img{
-    width:auto;
-    height:100%;
-    aspect-ratio:3/4;
+  .profile-card img{
+    width:90px;
+    height:100px;
+    aspect-ratio:auto;
+    object-fit:cover;
   }
 
-  .profile-caption{
-    flex:1;
-    font-size:9px;
-    line-height:1.6;
-  }
+  .profile-details{padding:8px}
+  .profile-name{font-size:14px}
+  .profile-role{font-size:8px}
+  .profile-divider{margin:8px 0}
+  .profile-discord{font-size:9px}
 
-  .section-label{margin-bottom:8px}
+  .section-label{margin-bottom:7px;font-size:9px}
 
   .section-title{
-    font-size:28px;
-    margin-bottom:12px;
+    font-size:26px;
+    margin-bottom:10px;
   }
 
-  .description{font-size:12px}
+  .description{font-size:11px;line-height:1.65}
 
   .about-grid{
     grid-template-columns:1fr;
-    gap:12px;
+    gap:10px;
   }
 
-  .about-card{padding:14px}
-  .about-card .icon{font-size:22px;margin-bottom:6px}
-  .about-card h3{font-size:13px}
-  .about-card p{font-size:11px}
+  .about-card{padding:12px}
+  .about-card .icon{font-size:20px;margin-bottom:5px}
+  .about-card h3{font-size:12px;margin-bottom:5px}
+  .about-card p{font-size:10px}
 
   .cards{
     grid-template-columns:1fr;
-    gap:9px;
-    margin-top:14px;
+    gap:7px;
+    margin-top:11px;
   }
 
   .card{
-    padding:10px 12px;
+    padding:8px 10px;
     display:grid;
-    grid-template-columns:37px 1fr;
-    column-gap:11px;
+    grid-template-columns:35px 1fr;
+    column-gap:10px;
     align-items:center;
   }
 
   .card-icon{
-    width:37px;
-    height:37px;
+    width:35px;
+    height:35px;
     grid-row:span 2;
     margin:0;
-    font-size:18px;
+    font-size:17px;
   }
 
-  .card h3{font-size:12px;margin:0 0 3px}
-  .card p{font-size:10px;line-height:1.5}
+  .card h3{font-size:11px;margin:0 0 3px}
+  .card p{font-size:9px;line-height:1.45}
   .card-number{display:none}
+  .bot-list{grid-column:2;margin-top:5px}
+  .bot-list span{font-size:7px;padding:4px 5px}
+  .project-status{font-size:8px;margin-top:5px}
 
-  .bot-list{
-    grid-column:2;
-    margin-top:7px;
+  .server-grid{
+    grid-template-columns:1fr;
+    gap:7px;
+    margin-top:10px;
   }
 
-  .bot-list span{font-size:8px;padding:4px 6px}
+  .server-card{
+    display:grid;
+    grid-template-columns:37px 1fr auto;
+    align-items:center;
+    column-gap:9px;
+    padding:8px 10px;
+  }
 
-  .project-box{padding:20px}
-  .timeline{gap:10px}
-  .timeline-item{padding:12px}
-  .timeline-item h3{font-size:13px}
-  .timeline-item p{font-size:11px}
+  .server-icon{
+    width:35px;
+    height:35px;
+    grid-row:span 3;
+    margin:0;
+    font-size:17px;
+  }
 
-  .contact-box{padding:25px 15px}
-  .contact-box .section-title{font-size:27px}
-  .contact-box p{font-size:11px;margin:10px auto 15px}
+  .server-card h3{font-size:11px;margin:0}
+  .server-card p{font-size:9px;line-height:1.3}
+  .server-rank{
+    margin:3px 0 0;
+    padding:4px 6px;
+    font-size:7px;
+  }
+
+  .server-link,.server-no-link{
+    grid-column:3;
+    grid-row:1 / span 3;
+    margin:0;
+    padding:8px 9px;
+    font-size:8px;
+    white-space:nowrap;
+  }
+
+  .timeline{
+    gap:7px;
+    margin-top:12px;
+    padding-left:19px;
+  }
+
+  .timeline-item{
+    padding:9px 11px;
+  }
+
+  .timeline-item:before{
+    left:-26px;
+    top:17px;
+    width:10px;
+    height:10px;
+  }
+
+  .timeline-item h3{font-size:11px;margin:4px 0}
+  .timeline-item p{font-size:9px;line-height:1.45}
+  .timeline-item small{font-size:8px}
+  .timeline-item a{font-size:9px;margin-top:4px}
+
+  .contact-box{padding:23px 13px}
+  .contact-box .section-title{font-size:25px}
+  .contact-box p{font-size:10px;margin:9px auto 14px}
+  .discord-user{font-size:11px}
 }
 
 /* PANTALLAS BAJAS */
@@ -846,13 +1018,18 @@ footer span{color:var(--red)}
 @media(max-height:650px) and (max-width:750px){
   header{height:100px}
   main{top:100px}
-  .screen{padding:8px 6%}
-  .hero-grid{gap:7px}
-  .profile-frame{height:22vh}
-  .section-title{font-size:24px}
-  .card{padding:7px 10px}
-  .timeline-item{padding:9px}
-  .contact-box{padding:14px}
+  .screen{padding:7px 6%}
+  .hero-grid{gap:6px}
+  .hero h1{font-size:40px}
+  .profile-card img{height:75px;width:70px}
+  .profile-card{grid-template-columns:70px 1fr}
+  .clock-box{margin-top:7px}
+  .section-title{font-size:23px}
+  .server-card{padding:6px 9px}
+  .server-icon{width:30px;height:30px}
+  .timeline{gap:5px}
+  .timeline-item{padding:7px 10px}
+  .contact-box{padding:13px}
 }
 
 /* REDUCIR MOVIMIENTO */
@@ -875,15 +1052,12 @@ footer span{color:var(--red)}
 
 <canvas id="particles"></canvas>
 
-<!-- HEADER -->
 <header>
-
   <a href="#" class="logo" data-go="inicio">
     LAMINE YAMAL<span>.</span>
   </a>
 
   <div class="header-right">
-
     <nav id="nav">
       <button class="active" data-go="inicio">Inicio</button>
       <button data-go="sobre-mi">Sobre mí</button>
@@ -897,7 +1071,6 @@ footer span{color:var(--red)}
       <span id="soundIcon">♪</span>
       <span id="soundText">SOUND OFF</span>
     </button>
-
   </div>
 </header>
 
@@ -932,16 +1105,32 @@ footer span{color:var(--red)}
         <span class="dot"></span>
         DESARROLLADOR INDEPENDIENTE
       </div>
+
+      <div class="clock-box">
+        <div class="clock-icon">◷</div>
+        <div class="clock-info">
+          <div id="argentinaTime">00:00:00</div>
+          <div id="argentinaDate">Cargando fecha...</div>
+        </div>
+      </div>
     </div>
 
-    <div class="profile-frame">
+    <div class="profile-card">
       <img
         src="https://i.ibb.co/yvyMR79/IMG-2080.jpg"
         alt="Foto de perfil de Lamine Yamal"
       >
-      <div class="profile-caption">
-        LAMINE YAMAL<br>
-        DEVELOPER
+
+      <div class="profile-details">
+        <div class="profile-name">LAMINE YAMAL</div>
+        <div class="profile-role">DESARROLLADOR INDEPENDIENTE</div>
+
+        <div class="profile-divider"></div>
+
+        <div class="profile-discord">
+          <span>Discord</span>
+          <strong>@Ryan_lamineyamal</strong>
+        </div>
       </div>
     </div>
 
@@ -990,11 +1179,11 @@ footer span{color:var(--red)}
 <section class="screen" id="que-hago">
   <div class="screen-content">
 
-    <div class="section-label">02 / SERVICIOS</div>
+    <div class="section-label">02 / ACTIVIDADES</div>
     <h2 class="section-title">¿QUÉ <span>HAGO?</span></h2>
 
     <p class="description">
-      Estos son los principales trabajos que realizo.
+      Algunas de las cosas que me gusta desarrollar.
     </p>
 
     <div class="cards">
@@ -1054,24 +1243,52 @@ footer span{color:var(--red)}
 <section class="screen" id="proyectos">
   <div class="screen-content">
 
-    <div class="section-label">03 / TRABAJO</div>
+    <div class="section-label">03 / SERVIDORES</div>
     <h2 class="section-title">MIS <span>PROYECTOS.</span></h2>
 
-    <div class="project-box">
-      <div class="project-icon">⛏️</div>
-      <h3>SylenMC</h3>
+    <p class="description">
+      Algunos de los servidores en los que participo.
+    </p>
 
-      <p>
-        Servidor de Minecraft en el que desempeño
-        el cargo de H. Manager, participando
-        en su gestión y administración.
-      </p>
+    <div class="server-grid">
 
-      <div class="project-status">
-        H. MANAGER · MINECRAFT
-      </div>
+      <article class="server-card">
+        <div class="server-icon">⛏️</div>
+        <h3>SylenMC</h3>
+        <p>Servidor de Minecraft. Participo en su gestión y administración.</p>
+        <span class="server-rank">MÁNAGER</span>
+        <a class="server-link"
+           href="https://discord.gg/Y2NNV9N7s8"
+           target="_blank" rel="noopener noreferrer">
+          VER SERVIDOR ↗
+        </a>
+      </article>
+
+      <article class="server-card">
+        <div class="server-icon">🌎</div>
+        <h3>Imperio Latino</h3>
+        <p>Participo en el equipo del servidor.</p>
+        <span class="server-rank">SOPORTE</span>
+        <a class="server-link"
+           href="https://discord.gg/k6unjn6PFB"
+           target="_blank" rel="noopener noreferrer">
+          VER SERVIDOR ↗
+        </a>
+      </article>
+
+      <article class="server-card">
+        <div class="server-icon">👑</div>
+        <h3>Red Kings</h3>
+        <p>Participo en el desarrollo del servidor.</p>
+        <span class="server-rank">DEVELOPER</span>
+        <a class="server-link"
+           href="https://discord.gg/qYcnWcfpnn"
+           target="_blank" rel="noopener noreferrer">
+          VER SERVIDOR ↗
+        </a>
+      </article>
+
     </div>
-
   </div>
 </section>
 
@@ -1083,28 +1300,42 @@ footer span{color:var(--red)}
     <h2 class="section-title">MI <span>TRAYECTORIA.</span></h2>
 
     <p class="description">
-      Mi camino en el mundo digital y el desarrollo.
+      Mi experiencia en diferentes comunidades y servidores.
     </p>
 
     <div class="timeline">
 
       <article class="timeline-item">
         <small>ACTUALIDAD</small>
-        <h3>Desarrollo independiente</h3>
-        <p>
-          Continúo aprendiendo, creando webs,
-          configurando bots y desarrollando
-          proyectos propios.
-        </p>
-      </article>
-
-      <article class="timeline-item">
-        <small>EXPERIENCIA</small>
-        <h3>SylenMC — H. Manager</h3>
+        <h3>SylenMC — Mánager</h3>
         <p>
           Participo en la gestión y administración
           de un servidor de Minecraft.
         </p>
+      </article>
+
+      <article class="timeline-item">
+        <small>ACTUALIDAD</small>
+        <h3>Imperio Latino — Soporte</h3>
+        <p>
+          Formo parte del equipo de soporte del servidor.
+        </p>
+        <a href="https://discord.gg/k6unjn6PFB"
+           target="_blank" rel="noopener noreferrer">
+          INVITACIÓN DE DISCORD ↗
+        </a>
+      </article>
+
+      <article class="timeline-item">
+        <small>ACTUALIDAD</small>
+        <h3>Red Kings — Developer</h3>
+        <p>
+          Formo parte del equipo de desarrollo del servidor.
+        </p>
+        <a href="https://discord.gg/qYcnWcfpnn"
+           target="_blank" rel="noopener noreferrer">
+          INVITACIÓN DE DISCORD ↗
+        </a>
       </article>
 
     </div>
@@ -1121,9 +1352,8 @@ footer span{color:var(--red)}
       <h2 class="section-title">HABLEMOS<span>.</span></h2>
 
       <p>
-        ¿Tenés una idea, necesitás configurar un bot
-        o querés desarrollar una web?
-        Podés encontrarme en Discord.
+        ¿Tenés una idea o querés encontrarme?
+        Podés contactarme a través de Discord.
       </p>
 
       <div class="discord-user">
@@ -1179,9 +1409,36 @@ function showScreen(id){
 document.querySelectorAll("[data-go]").forEach(button=>{
   button.addEventListener("click",()=>{
     showScreen(button.dataset.go);
-    playSound();
   });
 });
+
+/* HORA DE ARGENTINA */
+
+function updateArgentinaClock(){
+  const now=new Date();
+
+  const time=new Intl.DateTimeFormat("es-AR",{
+    timeZone:"America/Argentina/Buenos_Aires",
+    hour:"2-digit",
+    minute:"2-digit",
+    second:"2-digit",
+    hour12:false
+  }).format(now);
+
+  const date=new Intl.DateTimeFormat("es-AR",{
+    timeZone:"America/Argentina/Buenos_Aires",
+    weekday:"long",
+    day:"numeric",
+    month:"long",
+    year:"numeric"
+  }).format(now);
+
+  document.getElementById("argentinaTime").textContent=time;
+  document.getElementById("argentinaDate").textContent=date;
+}
+
+updateArgentinaClock();
+setInterval(updateArgentinaClock,1000);
 
 /* SONIDOS */
 
@@ -1191,23 +1448,6 @@ let audioContext=null;
 const soundToggle=document.getElementById("soundToggle");
 const soundIcon=document.getElementById("soundIcon");
 const soundText=document.getElementById("soundText");
-
-soundToggle.addEventListener("click",async()=>{
-  soundEnabled=!soundEnabled;
-
-  soundToggle.classList.toggle("enabled",soundEnabled);
-  soundToggle.setAttribute("aria-pressed",String(soundEnabled));
-
-  soundIcon.textContent=soundEnabled?"♫":"♪";
-  soundText.textContent=soundEnabled?"SOUND ON":"SOUND OFF";
-
-  if(soundEnabled){
-    playSound();
-    toast("Sonidos activados");
-  }else{
-    toast("Sonidos desactivados");
-  }
-});
 
 function playSound(){
   if(!soundEnabled)return;
@@ -1252,6 +1492,36 @@ function playSound(){
   }
 }
 
+// Activar y desactivar sonidos
+soundToggle.addEventListener("click",()=>{
+  soundEnabled=!soundEnabled;
+
+  soundToggle.classList.toggle("enabled",soundEnabled);
+  soundToggle.setAttribute("aria-pressed",String(soundEnabled));
+
+  soundIcon.textContent=soundEnabled?"♫":"♪";
+  soundText.textContent=soundEnabled?"SOUND ON":"SOUND OFF";
+
+  if(soundEnabled){
+    playSound();
+    toast("Sonidos activados");
+  }else{
+    toast("Sonidos desactivados");
+  }
+});
+
+// Sonido en todos los botones, excepto el interruptor de sonido
+document.querySelectorAll("button").forEach(button=>{
+  if(button.id!=="soundToggle"){
+    button.addEventListener("click",playSound);
+  }
+});
+
+// Sonido en enlaces de invitación de servidores
+document.querySelectorAll(".server-link").forEach(link=>{
+  link.addEventListener("click",playSound);
+});
+
 /* TOAST */
 
 function toast(message){
@@ -1276,8 +1546,6 @@ document.getElementById("copy").addEventListener("click",async()=>{
   }catch(error){
     toast("Discord: Ryan_lamineyamal");
   }
-
-  playSound();
 });
 
 /* PARTICULAS */
