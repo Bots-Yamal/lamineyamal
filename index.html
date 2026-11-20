@@ -379,13 +379,13 @@ main{
   text-transform:capitalize;
 }
 
-/* PROFILE CARD */
+/* BANNER DE INICIO */
 
-.profile-card{
+.hero-banner{
   width:100%;
-  max-width:300px;
+  max-width:430px;
   margin:auto;
-  padding:9px;
+  padding:8px;
   border:1px solid #ef333366;
   border-radius:14px;
   background:linear-gradient(145deg,#251010,#111);
@@ -393,54 +393,17 @@ main{
   transition:.4s;
 }
 
-.profile-card:hover{
+.hero-banner:hover{
   transform:translateY(-6px);
   box-shadow:0 0 50px #ef333344;
 }
 
-.profile-card img{
+.hero-banner img{
   display:block;
   width:100%;
-  aspect-ratio:3/3.5;
-  object-fit:cover;
+  height:auto;
+  object-fit:contain;
   border-radius:8px;
-}
-
-.profile-details{
-  padding:14px 10px 9px;
-}
-
-.profile-name{
-  font-size:16px;
-  font-weight:900;
-  letter-spacing:1px;
-}
-
-.profile-role{
-  color:#ff7777;
-  font-size:9px;
-  letter-spacing:2px;
-  margin-top:5px;
-}
-
-.profile-divider{
-  height:1px;
-  background:#ffffff18;
-  margin:12px 0;
-}
-
-.profile-discord{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:8px;
-  color:#aaa;
-  font-size:10px;
-}
-
-.profile-discord strong{
-  color:#fff;
-  font-weight:normal;
 }
 
 /* ABOUT */
@@ -875,28 +838,10 @@ footer span{color:var(--red)}
   #argentinaTime{font-size:15px}
   #argentinaDate{font-size:8px}
 
-  .profile-card{
-    max-width:none;
-    width:100%;
-    display:grid;
-    grid-template-columns:90px 1fr;
-    align-items:center;
-    gap:5px;
-    padding:7px;
+  .hero-banner{
+    max-width:100%;
+    padding:6px;
   }
-
-  .profile-card img{
-    width:90px;
-    height:100px;
-    aspect-ratio:auto;
-    object-fit:cover;
-  }
-
-  .profile-details{padding:8px}
-  .profile-name{font-size:14px}
-  .profile-role{font-size:8px}
-  .profile-divider{margin:8px 0}
-  .profile-discord{font-size:9px}
 
   .section-label{margin-bottom:7px;font-size:9px}
 
@@ -1021,8 +966,7 @@ footer span{color:var(--red)}
   .screen{padding:7px 6%}
   .hero-grid{gap:6px}
   .hero h1{font-size:40px}
-  .profile-card img{height:75px;width:70px}
-  .profile-card{grid-template-columns:70px 1fr}
+  .hero-banner{max-width:85%}
   .clock-box{margin-top:7px}
   .section-title{font-size:23px}
   .server-card{padding:6px 9px}
@@ -1115,23 +1059,12 @@ footer span{color:var(--red)}
       </div>
     </div>
 
-    <div class="profile-card">
+    <!-- BANNER NUEVO -->
+    <div class="hero-banner">
       <img
-        src="https://i.ibb.co/yvyMR79/IMG-2080.jpg"
-        alt="Foto de perfil de Lamine Yamal"
+        src="https://i.ibb.co/zVTRjGmT/190-sin-titulo-20261119235504.png"
+        alt="Banner del portafolio Lamine Yamal"
       >
-
-      <div class="profile-details">
-        <div class="profile-name">LAMINE YAMAL</div>
-        <div class="profile-role">DESARROLLADOR INDEPENDIENTE</div>
-
-        <div class="profile-divider"></div>
-
-        <div class="profile-discord">
-          <span>Discord</span>
-          <strong>@Ryan_lamineyamal</strong>
-        </div>
-      </div>
     </div>
 
   </div>
